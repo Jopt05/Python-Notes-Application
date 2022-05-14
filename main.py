@@ -3,8 +3,9 @@ from time import sleep
 from utils import bcolors, get_login_data, print_banner, clear, print_options, raise_error
 import os
 
-client = pymongo.MongoClient(os.environ['MONGODB_ATLAS'])
-mydb = client["RPSCluster"]
+client = pymongo.MongoClient(os.environ.get('MONGODB_ATLAS'))
+db_name = str(os.environ.get('DB_NAME'))
+mydb = client[db_name]
 
 
 def script():
